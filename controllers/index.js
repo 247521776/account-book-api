@@ -64,20 +64,20 @@ router.post("/api/user", async (ctx, next) => {
     }
 });
 
-// router.all('/api/*', async function(ctx, next) {
-//     const token = ctx.query.token;
-//     try {
-//         const data  = await verify(token);
-//         ctx.query.username = data.username;
-//     }
-//     catch(err) {
-//         return ctx.body = {
-//             code: 403,
-//             msg: '请登录'
-//         };
-//     }
-//     await next();
-// });
+router.all('/api/*', async function(ctx, next) {
+    const token = ctx.query.token;
+    try {
+        const data  = await verify(token);
+        ctx.query.username = data.username;
+    }
+    catch(err) {
+        return ctx.body = {
+            code: 403,
+            msg: '请登录'
+        };
+    }
+    await next();
+});
 
 fs.readdirSync(controllersPath)
     .filter(controllerPath => ~controllerPath.search(/^[^\.].*\.js$/))

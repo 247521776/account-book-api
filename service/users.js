@@ -1,5 +1,6 @@
 const mongoose        = require("mongoose");
 const users           = mongoose.model("account_users");
+const md5             = require('md5');
 
 // 创建用户
 exports.create = (user) => {
