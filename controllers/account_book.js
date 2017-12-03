@@ -1,5 +1,6 @@
-const book   = require('../service/account_book');
-const moment = require('moment');
+const book     = require('../service/account_book');
+const pay_type = require('../service/pay_type');
+const moment   = require('moment');
 
 module.exports = {
     '/api/account_book' : {
@@ -22,10 +23,18 @@ module.exports = {
                 };
                 options = JSON.parse(JSON.stringify(options));
                 const data  = await book.find(options);
+                const pay_types = await pay_type.findAll();
+                // 消费类型信息
+                const config_pay_type = {};
+
+                for (let item of pay_types) {
+                    config_pay_type[item.type] = item.name;
+                }
 
                 // 格式化时间
                 for (let item of data) {
-                    item.date = moment(item.date).format('YYYY-MM-DD');
+                    item.date     = moment(item.date).format('YYYY-MM-DD');
+                    item.pay_type = config_pay_type[item.pay_type] || item.pay_type;
                 }
 
                 const count = await book.count({
