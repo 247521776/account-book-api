@@ -6,7 +6,7 @@ const jwt             = require("jsonwebtoken");
 const md5             = require('md5');
 const users           = require('../service/users');
 
-router.post('/api/login', async (ctx, next) => {
+router.post('/api/login', async (ctx) => {
     const body     = ctx.request.body;
     const username = body.username;
     let   password = body.password;
@@ -24,7 +24,7 @@ router.post('/api/login', async (ctx, next) => {
         const user = await users.find(username);
         const token = jwt.sign({
             username,
-            exp: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60
+            exp: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60)
         }, "woshiyang");
         if (user.password === password) {
             return ctx.body = {
@@ -48,7 +48,7 @@ router.post('/api/login', async (ctx, next) => {
     }
 });
 
-router.post("/api/user", async (ctx, next) => {
+router.post("/api/user", async (ctx) => {
     const user     = ctx.request.body || {};
     const username = user.username;
     const password = user.password;
@@ -112,7 +112,7 @@ module.exports = (app) => {
 
     app.use(router.routes());
     app.use(router.allowedMethods());
-}
+};
 
 function verify(token) {
     return new Promise((resolve, reject) => {

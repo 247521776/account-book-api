@@ -6,17 +6,11 @@
   "scripts": {
     "commit": "commit-wizard"
   },
-  "config": {
-    "pre-git": {
-      "enabled": true,
-      "commit-msg": "",
-      "pre-commit": [
-        "eslint controllers/**",
-        "eslint models/**",
-        "eslint service/**"
-      ]
-    }
-  },
+  "pre-commit": [
+    "eslint controllers/**",
+    "eslint models/**",
+    "eslint service/**"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/247521776/account-book-api.git"

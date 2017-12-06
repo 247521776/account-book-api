@@ -4,7 +4,7 @@ const moment   = require('moment');
 
 module.exports = {
     '/api/account_book' : {
-        async get(ctx, next) {
+        async get(ctx) {
             const query    = ctx.query,
                   username = query.username,
                   year     = query.year,
@@ -58,7 +58,7 @@ module.exports = {
                 };
             }
         },
-        async post(ctx, next) {
+        async post(ctx) {
             const body     = ctx.request.body;
             const username = ctx.query.username;
             const date     = new Date();

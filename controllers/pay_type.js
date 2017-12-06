@@ -2,7 +2,7 @@ const pay_type = require('../service/pay_type');
 
 module.exports = {
     '/api/pay_type': {
-        async get(ctx, next) {
+        async get(ctx) {
             const data = await pay_type.findAll();
             ctx.body = {
                 code: 200,
@@ -11,4 +11,4 @@ module.exports = {
             };
         }
     }
-}
+};
