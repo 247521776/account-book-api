@@ -8,6 +8,7 @@
   },
   "config": {
     "pre-git": {
+      "enabled": true,
       "commit-msg": "",
       "pre-commit": [
         "eslint controllers/**",
