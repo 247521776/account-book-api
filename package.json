@@ -9,7 +9,7 @@
   "config": {
     "pre-git": {
       "commit-msg": "",
-      "pre-push": [
+      "pre-commit": [
         "eslint controllers/**",
         "eslint models/**",
         "eslint service/**"
