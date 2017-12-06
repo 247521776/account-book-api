@@ -29,7 +29,7 @@ exports.find = (options) => {
             resolve(data);
         });
     });
-}
+};
 
 exports.add = (options) => {
     return new Promise((resolve, reject) => {
@@ -41,7 +41,7 @@ exports.add = (options) => {
             });
         });
     });
-}
+};
 
 exports.count = (options) => {
     options = JSON.parse(JSON.stringify(options));
@@ -51,4 +51,4 @@ exports.count = (options) => {
             resolve(data);
         });
     });
-}
+};

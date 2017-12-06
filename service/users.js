@@ -23,7 +23,9 @@ exports.create = (user) => {
                     password: md5(password)
                 });
                 user.save((err) => {
-                    if(err) reject(err);
+                    if(err) {
+                        reject(err);
+                    }
                     resolve({
                         code: 200,
                         msg: '创建成功'
@@ -45,4 +47,4 @@ exports.find = (username) => {
             resolve(data[0]);
         });
     });
-}
+};

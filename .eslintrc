@@ -39,7 +39,6 @@
 		"semi": "error", // 要求使用分号
 		"no-empty": ["error", { "allowEmptyCatch": true }],   //不允许空白的代码块，除了catch
 		"no-mixed-operators": ["error", {"allowSamePrecedence": true}], //不允许多个不同的比较关系
-		"comma-spacing": "error",
-		"keyword-spacing": "error"
+		"comma-spacing": "error"
 	}
 }

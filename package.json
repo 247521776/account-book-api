@@ -9,7 +9,9 @@
   "config": {
     "pre-git": {
       "pre-push": [
-        "eslint **"
+        "eslint controllers/**",
+        "eslint models/**",
+        "eslint service/**"
       ]
     }
   },
