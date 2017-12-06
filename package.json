@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "commit": "commit-wizard"
+  },
+  "config": {
+    "pre-git": {
+      "pre-push": [
+        "eslint **"
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/247521776/account-book-api.git"
@@ -25,5 +34,21 @@
     "md5": "^2.2.1",
     "moment": "^2.19.2",
     "mongoose": "^4.13.0"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "devDependencies": {
+    "pre-git": "^3.16.0"
   }
 }

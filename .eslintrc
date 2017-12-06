@@ -1,0 +1,45 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"mocha": true
+	},
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"node": true,
+		"ecmaVersion": 6,
+		"sourceType": "script"
+	},
+	"globals": {
+		"describe": true,
+		"context": true,
+		"it": true,
+		"before": true,
+		"after": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"Promise": true
+	},
+	"rules": {
+		// "camelcase": ["error", { "properties": "never" }], // 强制使用骆驼拼写法命名约定
+		"func-style": ["error", "declaration"], // 强制一致地使用 function 声明或表达式
+		"no-unused-vars": "error", // 禁止出现未使用过的变量
+		"no-var": "error", // 要求使用 let 或 const 而不是 var
+		"eqeqeq": "error", // 要求使用 === 和 !==
+		"curly": ["warn", "multi-line", "consistent"], // 强制所有控制语句使用一致的括号风格
+		"max-len": [ "error", 120], // 强制一行的最大长度
+		"no-eval": "error", // 禁用 eval()
+		"max-lines": ["error", 1000], // 强制最大行数
+		"max-params": ["error", 5], // 强制函数定义中最多允许的参数数量
+		"arrow-spacing": ["error", {"before": true, "after": true }], // 强制箭头函数的箭头前后使用一致的空格
+		"space-before-blocks": ["error", "always"], // 强制在块之前使用一致的空格
+		"space-infix-ops": ["error", {"int32Hint": false}], // 要求操作符周围有空格
+		// "space-unary-ops": ["error", {"words": true, "nonwords": true}], // 强制在一元操作符前后使用一致的空格
+		"no-undef": "error", // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到
+		"semi": "error", // 要求使用分号
+		"no-empty": ["error", { "allowEmptyCatch": true }],   //不允许空白的代码块，除了catch
+		"no-mixed-operators": ["error", {"allowSamePrecedence": true}], //不允许多个不同的比较关系
+		"comma-spacing": "error",
+		"keyword-spacing": "error"
+	}
+}
