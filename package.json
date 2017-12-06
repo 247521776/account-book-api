@@ -7,9 +7,7 @@
     "commit": "commit-wizard"
   },
   "pre-commit": [
-    "eslint controllers/**",
-    "eslint models/**",
-    "eslint service/**"
+    "eslint *.js"
   ],
   "repository": {
     "type": "git",

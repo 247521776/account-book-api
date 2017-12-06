@@ -17,7 +17,7 @@ fs.readdirSync(modelPath)
 
 // 连接数据库
 mongoose.connect(config.mongo, {useMongoClient: true})
-    .then(function(db) {
+    .then(function() {
         // 添加所有路由
         require("./controllers")(app);
         const port = 2828;

@@ -1,6 +1,5 @@
 const mongoose      = require('mongoose');
 const config        = require("./config");
-const Schema        = mongoose.Schema;
 mongoose.Promise    = global.Promise;
 const pay_type_data = [
     {
@@ -35,11 +34,11 @@ const pay_type_data = [
 const pay_type      = require('./models/pay_type');
 
 mongoose.connect(config.mongo, {useMongoClient: true})
-.then(function(db) {
+.then(function() {
     pay_type.remove((err) => {
         if (err) return console.error('清理数据失败');
         console.log('清理数据成功');
-        pay_type.insertMany(pay_type_data, (err, docs) => {
+        pay_type.insertMany(pay_type_data, (err) => {
             if(err) return console.error('初始化数据失败');
             console.log('数据初始化成功');
             pay_type.find((err, data) => {
