@@ -8,6 +8,7 @@
   },
   "config": {
     "pre-git": {
+      "commit-msg": "",
       "pre-push": [
         "eslint controllers/**",
         "eslint models/**",
